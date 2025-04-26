@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Sign-Up Page
+{% endblock %}
+
+{% block header %}
+    <h1 class="text-center">Sign Up</h1>
+{% endblock %}
+
+{% block content %}
+<div class="signup-wrapper" style="max-width: 400px; margin: 2rem auto; padding: 2rem; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="text-align: center; margin-bottom: 1.5rem;">Sign Up</h2>
+
+    <form method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+        {% csrf_token %}
+        
+        <div style="display: flex; flex-direction: column;">
+            <label for="username" style="margin-bottom: 0.5rem;">Username</label>
+            <input type="text" id="username" name="username" required style="padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+            <label for="email" style="margin-bottom: 0.5rem;">Email</label>
+            <input type="email" id="email" name="email" required style="padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+            <label for="password" style="margin-bottom: 0.5rem;">Password</label>
+            <input type="password" id="password" name="password" required style="padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <div style="display: flex; flex-direction: column;">
+            <label for="password2" style="margin-bottom: 0.5rem;">Confirm Password</label>
+            <input type="password" id="password2" name="password2" required style="padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <div>
+            <button type="submit" style="width: 100%; padding: 0.75rem; background-color: #007bff; color: white; border: none; border-radius: 4px; font-size: 1rem;">Sign Up</button>
+        </div>
+    </form>
+
+    <p style="text-align: center; margin-top: 1rem;">
+        Already have an account? <a href="{% url 'accounts:login' %}">Login here</a>.
+    </p>
+
+    {% if errors %}
+        <div style="color: red; margin-top: 1rem;">
+            <ul style="padding-left: 1.5rem;">
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

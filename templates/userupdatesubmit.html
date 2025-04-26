@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="booking-wrapper" style="max-width: 600px; margin: 2rem auto; padding: 2rem; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+    <h1 class="text-center mb-4" style="color: #343a40;">Update Appointment</h1>
+
+    <p>Service: {{ request.session.service }}</p>
+    <p>Day: {{ request.session.day }}</p>
+
+    <form method="post" action="{% url 'reservations:userupdatesubmit' id=id %}" class="booking-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        {% csrf_token %}
+        <div>
+            <label for="time" class="form-label" style="font-weight: bold; margin-bottom: 0.5rem; color: #495057;">Select Time:</label>
+            <select class="form-select form-select-lg" name="time" id="time" style="padding: 0.75rem; font-size: 1rem; border: 1px solid #ced4da; border-radius: 0.25rem;">
+                {% for time_slot in times %}
+                    <option value="{{ time_slot }}">{{ time_slot }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="padding: 0.75rem 1.5rem; font-size: 1.1rem; color: white; background-color: #007bff; border: none; border-radius: 0.25rem; cursor: pointer;">Update Booking</button>
+    </form>
+</div>
+
+<style>
+    .form-label {
+        display: block;
+    }
+</style>
+
+{% endblock %}

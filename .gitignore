@@ -1,0 +1,56 @@
+# Python related
+*.pyc
+*.pyo
+__pycache__/
+*.so
+
+# Django related
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# Environment variables
+.env
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+
+# IDE related files
+.vscode/
+.idea/
+
+# PyCharm
+*.iml
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Linux
+*~
+
+# Coverage reports
+.coverage
+*.coveragerc
+
+# Test-related files
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# MySQL
+*.sql
+
+# Django migrations
+*/migrations/*
