@@ -36,7 +36,6 @@ To deploy this project run
 
 ```bash
 # Build the Docker Image
-
 docker build -t bs_booking.
 
 # Run the Containers
